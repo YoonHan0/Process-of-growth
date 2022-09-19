@@ -1,1 +1,0 @@
-# 1주차 공부기록(CloneCoding)
