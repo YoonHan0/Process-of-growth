@@ -1,0 +1,735 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+ul {
+    list-style:none;
+}
+body {
+    background-color: rgb(244, 241, 248);
+}
+header {                    /* header 부분 카테고리도 포함해서 */
+    display: flex;
+    flex-direction: column;
+    position:-webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1;            /* slide의 z-index:0보다  header의 z-index가 더 커서 위로 배치됨*/
+}
+
+.all_contents {
+    display: flex;
+    flex-direction: column;
+}
+
+.header_first {             /* header 첫 줄 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 5px 30px 5px 20px;         /* 위부터 시계 방향으로 */
+    background-color: rgb(244, 241, 248);
+}
+
+.header_first div :nth-child(1){             /* 뱅크샐러드 앱 다운로드 Btn */
+    background-color: white;
+    border: 1px solid rgb(235, 222, 222);
+    border-radius: 5px 5px 5px 5px;
+
+    font-weight: bold;
+    font-size: 12px;
+
+    padding: 3px;
+    margin-right: 5px;
+}
+.header_first div :nth-child(2) {              /* 인증서 센터 a tag */
+    color: gray;
+    border: 1px solid rgb(235, 222, 222);
+    border-radius: 5px 5px 5px 5px;
+    background-color: white;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    padding: 3px;
+}
+
+.header_first ul{             /* 자주 묻는 질문 | 고객안심센터 | 뱅샐머니(송금) */
+    font-size: 12px;  
+}
+.header_first ul a{             /* 자주 묻는 질문 | 고객안심센터 | 뱅샐머니(송금) */
+    font-size: 12px;
+    padding: 0px 10px 0px 10px;  /* padding-right, left */
+}
+
+.header_first ul a:nth-child(1),
+.header_first ul a:nth-child(2){             /* 자주 묻는 질문 | 고객안심센터 | 뱅샐머니(송금) */
+    border-right: 1px gray solid;  
+}
+
+.header_second {
+    display: flex;
+    position: relative;
+    align-items: center;
+
+    background-color: white;
+    border-top: 1px solid rgb(189, 188, 188);
+    border-bottom: 1px solid rgb(189, 188, 188);
+}
+
+.header_second .title {
+    font-weight: bold;
+    font-size: 26px;
+
+    margin : 0px 24px 0px 0px;
+    padding: 12px;
+}
+
+.header_second .category a {
+    padding: 0px 12px 0px 12px;
+}
+.header_second .category a:hover {          
+    /* hover되면 display가 변경되면서 출력됨 */
+    color: rgb(236, 164, 29);
+}
+/* ------------------------------- category hover 했을 때만 나오는 리스트 ----------------------------------- */
+.category_in_container {
+    position: relative;
+}
+.category_in_list_1 {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    padding-left: 220px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100%;
+    font-size: 15px;
+
+    background-color: rgb(248, 247, 247);
+}
+.category_in_container .category_in_list_1 .list_title {
+    font-weight: bold;
+}
+.category_in_list_1 ul:nth-of-type(1) {
+    padding-right: 50px;
+}
+.category_in_list_1 ul li{
+    padding-bottom: 20px;
+}
+
+/* --------------------------------------- container_card_list ------------------------------------------------------- */
+
+.container_card_list {
+    margin: 10px 0px;
+}
+
+.card_list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container_card_list .card_list section {
+    background-color: white;
+    padding: 10px;
+    margin-right: 10px;
+
+    font-size: 15px;
+}
+
+.container_card_list .card_list a {
+    padding: 16px 6px;
+    background-color: rgb(122, 145, 122);
+    color: white;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* --------------------------------------- container_slider ------------------------------------------------------- */
+
+.container_slider {
+    position: relative;             /* contain안의 상대적인 위치를 조정할 수 있음 top, left, right, botton같은 속성으로 */
+    width: 100%;
+    height: 480px;
+
+    margin-left: auto;              /* auto로 가운데 정렬 */
+    margin-right: auto;
+    overflow: hidden;
+    z-index: 0;
+}
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 0.6s cubic-bezier(0.83, 0, 0.17, 1);;
+    /*transform의 수행 과정을 1초에 걸쳐서 방식으로 보여달라*/
+    /*  https://easings.net/    */
+}
+#firstSlide {
+    background-color: skyblue;
+    left: 0;
+}
+#secondSlide {
+    background-color: orange;
+    left: 100%;
+}
+#thirdSlide {
+    background-color: skyblue;
+    left: 200%;
+}
+/* ---------------------------- slide contents(공유) ---------------------------- */
+.slide .slide_contents {    
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;         /* 가운데 정렬 */
+    padding: 100px 0px;
+
+    width: 100%;
+    text-align: left;
+    max-width: 946px;
+}
+.slide .slide_contents .slide_main_btn {        /* 이거 flex로 하고 크기만큼만 되게 */
+    display: inline-block;
+}
+.slide button:nth-of-type(1) {          /* 첫 번째 버튼 */
+    margin-top: 18px;
+}
+.slide button:nth-of-type(2) {          /* 두 번째 버튼 */
+    margin-top: 10px;
+}
+/* ---------------------------- 이 부분부터는 따로 사용 ---------------------------- */
+#firstSlide .slide_main_sentence {
+    font-size: 55px;
+    color: black;
+    font-weight: bold;
+}
+#firstSlide .slide_main_btn button {         /* 첫 번째 버튼 공통된 값*/
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 10px 15px;
+}
+#firstSlide .slide_main_btn button:nth-of-type(1) {  /* 첫 번째 버튼(1)*/
+    color: white;
+    background-color: rgb(113, 168, 113);
+    border: rgb(131, 173, 131) 1px solid;
+}
+#firstSlide .slide_main_btn button:nth-of-type(2) {    /* 첫 번째 버튼(2)*/
+    color: rgb(113, 168, 113);
+    background-color: white;
+    border: rgb(113, 168, 113) solid 1px;
+}
+#secondSlide .slide_main_sentence {
+    font-size: 55px;
+    font-weight: bold;
+    color: black;
+}
+#secondSlide .sub_sentence {                       /* sub_sentence 스타일 (2) */
+    font-size: 25px;
+    color: black;
+}
+#secondSlide .slide_main_btn button {              /* 버튼 스타일 (2) */
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(168, 114, 219);
+
+    border-radius: 20px;
+    border: rgb(168, 114, 219) 1px solid;
+
+    padding: 10px 15px;
+}
+#thirdSlide .slide_main_sentence {
+    font-size: 55px;
+    font-weight: bold;
+    color: white;
+}
+#thirdSlide .sub_sentence {                       /* sub_sentence 스타일 (2) */
+    font-size: 25px;
+    color: white;
+}
+#thirdSlide .slide_main_btn button {              /* 버튼 스타일 (2) */
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    background-color: rgb(236, 164, 29);
+
+    border-radius: 20px;
+    border: rgb(236, 164, 29) 1px solid;
+
+    padding: 10px 15px;
+}
+#first:checked ~ .slide {transform: translateX(0);}
+#second:checked ~ .slide {transform: translateX(-100%);}
+#third:checked ~ .slide {transform: translateX(-200%);}
+/* 체크되면 하위(~) 클래스 .slide들을 수행한다 transform: translateX() */
+#first:checked ~ .labelList label:nth-child(1),
+#second:checked ~ .labelList label:nth-child(2),
+#third:checked ~ .labelList label:nth-child(3) {
+    opacity: 0.8;
+}
+#first:checked ~ .labelList label:nth-child(1)::after,
+#second:checked ~ .labelList label:nth-child(2)::after,
+#third:checked ~ .labelList label:nth-child(3)::after {
+    opacity: 1;
+}
+
+
+.container_slider input {
+    display: none;
+}
+.container_slider .labelList {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    z-index: 1;
+}
+.container_slider .labelList label {
+    width: 24px;
+    height: 24px;
+    padding: 16px;
+    opacity: 0.3;
+    cursor: pointer;
+    position: relative;
+    transition: opacity 0.6s ease-in-out;
+}
+.container_slider .labelList label::before,
+.container_slider .labelList label::after {
+    content: '';
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.container_slider .labelList label::before {
+    width: 12px;
+    height: 12px;
+    background-color: white;
+}
+.container_slider .labelList label::after {
+    width: 24px;
+    height: 24px;
+    border: 1px solid white;
+    opacity: 0;
+}
+
+/* --------------------------------------- section_4 ------------------------------------------------------- */
+
+.section_4 {
+    text-align: center;
+
+    padding: 60px 0px;
+    margin-bottom: 10px;
+
+    background-color: white;
+}
+.section_4 h3 {
+    color: rgb(143, 139, 139);
+}
+.section_4 strong {
+    font-size: 28px;
+}
+.section_4 .section_4_list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 30px auto 0px auto;
+}
+.section_4 .section_4_list li {
+    padding: 0px 30px;
+}
+.section_4 .section_4_list li i{
+    font-size: 70px;
+
+    margin-bottom: 20px;
+}
+.section_4 .section_4_list span{
+    color: gray;
+}
+.section_4 .section_4_list h2{
+   font-size: 23px;
+}
+
+/* --------------------------------------- section_5 ------------------------------------------------------- */
+/* 전체 section5를 block로 하고 section5의 자식은 inline-block하고 text-align center
+  해서 가운데정렬하고 그 자식을 flex로 해서 글자를 left 해줌*/
+.section_5 {
+    display: block;
+    width: 100%;
+    background-color: white;
+    
+    text-align: center;
+    padding: 48px 0px;
+}
+
+.section_5 .section_5_container {
+    display: inline-block;
+    margin-left: auto;                              
+    margin-right: auto;
+    padding: 0px 32px;
+    
+}
+.section_5 .section_5_container_2 {
+    display: flex;
+    flex-direction: column;
+    text-align: left;   
+}
+.section_5 .section_5_container .section_5_container_2 .section_5_title {
+    margin-bottom: 20px;
+}
+.section_5 .section_5_list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 15px;
+    row-gap: 15px;
+
+    width: 100%;
+
+}
+
+.section_5 .section_5_list .section_5_contents{        /* img+contentsbox */
+    display: block;
+    position: relative;
+    border: 1px solid rgb(158, 155, 155);
+    width: 200px;
+}
+.section_5 .section_5_list .section_5_contents a{      /* section_5_contents 위에 a태그 덮어쓰기 */
+    font-size:0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: 70%;
+}
+.section_5 .section_5_list .section_5_contentsBox {     /* contentsbox */
+    display: block;
+    padding: 10px;
+}
+
+.section_5 .section_5_list .section_5_contentsBox h3 {     /* contentsbox */
+    margin-bottom: 40px;
+}
+
+
+.section_5 .section_5_list .section_5_contentsBox .section_5_contentsBox_Btn {      /* contentsbox안에 있는 Btn 그룹 */
+    position: absolute;
+
+    right: 10px;
+    bottom: 10px;
+}
+
+.section_5 .section_5_list .section_5_contentsBox .section_5_contentsBox_Btn button{      /* Btn 그룹안에 있는 Btn */
+    background-color: white;
+    color: rgb(129, 126, 126);
+    border: 2px solid rgb(199, 196, 196);
+
+    padding: 5px 10px;
+
+}
+/* ------------------------- section_6 ( tabs ) --------------------------- */
+/* 전체 section6을 flex로 하고 section6의 자식 클리스에서 margin auto해서 가운데 정렬을 함 */
+/* 경제전문가의 금융라뷰 */
+.section_6 {
+    width: 100%;
+    display: flex;
+    
+    margin: 10px 0px;
+
+    background-color: white;
+}
+.section_6_contents {
+    display: block;
+
+    padding: 40px 10px;
+    margin-left: auto;
+    margin-right: auto;         
+}
+.section_6 .tabs {              /*tabs*/
+    margin: 40px 0px;
+}
+.section_6.tab_bar_wrap {     /*tab_bar wrap*/
+    display: flex;
+}
+.section_6 .tab_bar_wrap label{          /*tab_bar*/
+    border-top: 2px rgb(223, 217, 217) solid;
+    padding: 12px 36px;
+    cursor: pointer;
+}
+.section_6 .contents_wrap {    /*contents*/
+    height: 200px;              /* 임의로 크기를 지정 해놓지만 나중에 contents 크기만큼 */
+    width: 794px;
+
+    margin-top: 30px;
+}
+.section_6 .tab_content {
+    display: none;
+    height: 100%;
+    width: 100%;
+}
+.section_6 .checklabel {
+    display: none;
+}
+#tabs_first:checked ~ .tab_bar_wrap label:nth-child(1),
+#tabs_second:checked~ .tab_bar_wrap label:nth-child(2),
+#tabs_third:checked~ .tab_bar_wrap label:nth-child(3),
+#tabs_4:checked~ .tab_bar_wrap label:nth-child(4),
+#tabs_5:checked~ .tab_bar_wrap label:nth-child(5),
+#tabs_6:checked~ .tab_bar_wrap label:nth-child(6),
+#tabs_7:checked~ .tab_bar_wrap label:nth-child(7){
+    background-color: white;
+    color: rgb(45, 184, 45);
+    border-bottom: 2px solid rgb(45, 184, 45);
+}
+#tabs_first:checked ~ .contents_wrap li:nth-child(1),
+#tabs_second:checked ~ .contents_wrap li:nth-child(2),
+#tabs_third:checked ~ .contents_wrap li:nth-child(3),
+#tabs_4:checked ~ .contents_wrap li:nth-child(4),
+#tabs_5:checked ~ .contents_wrap li:nth-child(5),
+#tabs_6:checked ~ .contents_wrap li:nth-child(6),
+#tabs_7:checked ~ .contents_wrap li:nth-child(7){
+    background-color: #393b3a;
+    color: #e9ebe8;
+    display: block;
+}
+
+/* ------------------------------------- section_7 --------------------------------------- */
+/* 부자되는 금융꿀팁 */
+.section_7 {
+    width: 100%;
+    display: flex;
+    margin: 10px 0px;
+
+    background-color: white;
+}
+.section_7_contents {
+    display: block;
+
+    padding: 40px 10px;
+    margin-left: auto;
+    margin-right: auto;         /* secion5처럼 가운데 정렬을 해야 함 */
+}
+.section_7 .section_7_tabs {              /*tabs*/
+    margin: 40px 0px;
+}
+.section_7 .section_7_tab_bar_wrap {     /*tab_bar wrap*/
+    display: flex;
+}
+.section_7 .section_7_tab_bar_wrap label{          /*tab_bar*/
+    border-top: 2px rgb(223, 217, 217) solid;
+    margin-right: 5px;
+    padding: 12px 36px;
+    cursor: pointer;
+}
+.section_7 .section_7_contents_wrap {    /*contents*/
+    height: 200px;              /* 임의로 크기를 지정 해놓지만 나중에 contents 크기만큼 */
+    width: 794px;
+
+    margin-top: 30px;
+}
+.section_7 .section_7_contents_wrap .section_7_tab_content {
+    display: none;
+    height: 100%;
+    width: 100%;
+}
+.section_7 .section_7_checklabel {
+    display: none;
+}
+#section_7_tabs_first:checked ~ .section_7_tab_bar_wrap label:nth-child(1),
+#section_7_tabs_second:checked~ .section_7_tab_bar_wrap label:nth-child(2),
+#section_7_tabs_third:checked~ .section_7_tab_bar_wrap label:nth-child(3),
+#section_7_tabs_4:checked~ .section_7_tab_bar_wrap label:nth-child(4),
+#section_7_tabs_5:checked~ .section_7_tab_bar_wrap label:nth-child(5),
+#section_7_tabs_6:checked~ .section_7_tab_bar_wrap label:nth-child(6),
+#section_7_tabs_7:checked~ .section_7_tab_bar_wrap label:nth-child(7){
+    background-color: white;
+    color: rgb(45, 184, 45);
+    border-bottom: 2px solid rgb(45, 184, 45);
+}
+#section_7_tabs_first:checked ~ .section_7_contents_wrap li:nth-child(1),
+#section_7_tabs_second:checked ~ .section_7_contents_wrap li:nth-child(2),
+#section_7_tabs_third:checked ~ .section_7_contents_wrap li:nth-child(3),
+#section_7_tabs_4:checked ~ .section_7_contents_wrap li:nth-child(4),
+#section_7_tabs_5:checked ~ .section_7_contents_wrap li:nth-child(5),
+#section_7_tabs_6:checked ~ .section_7_contents_wrap li:nth-child(6),
+#section_7_tabs_7:checked ~ .section_7_contents_wrap li:nth-child(7){
+    background-color: #393b3a;
+    color: #e9ebe8;
+    display: block;
+}
+
+/* ------------------------------------- section_8 --------------------------------------- */
+
+.section8 {
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.section8 .section8_container {
+    color: black;
+    
+    margin-left: auto;
+    margin-right: auto;         /* 가운데 정렬 */
+    padding: 80px 0px;
+
+    width: 100%;
+    text-align: left;
+    max-width: 946px;
+}
+.section8 .section8_container .section8_subsetence {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.section8 .section8_container .section8_mainsetence {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.section8 .section8_container .section8_btn button{
+    padding: 12px 24px;
+    background-color: #393b3a;
+    color: white;
+    border: #393b3a 1px solid;
+}
+/* ------------------------------------- section_8 --------------------------------------- */
+
+.section9 {
+    width: 100%;
+    display: flex;
+
+    text-align: center;
+    justify-content: center;
+
+    background-color: white;
+}
+.section9 .section9_mainsetence {
+    padding: 60px 0px;
+}
+
+.section10 {
+    width: 100%;
+    display: flex;
+    
+    text-align: center;
+    justify-content: center;
+}
+.section10 .section10_mainsectence {
+    padding: 20px 0px;
+
+    font-size: 15px;
+    color: gray;
+}
+.section10 .section10_mainsectence a {
+    color: gray;
+    text-decoration: underline;
+}
+
+/* ------------------------------section_footer ----------------------- */
+
+.section_footer {           /* 전체 footer */
+    width: 100%;
+    display: flex;
+    background-color: rgb(67, 67, 77);
+    color: white;
+}
+.section_footer .footer_container {
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 80px 0px;
+}
+.section_footer .footer_first {
+    display: flex;
+
+    margin-bottom: 100px;
+}
+.footer_first .footer_main {
+    margin-right: 130px;
+}
+.footer_first .footer_main a {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+
+    /*margin-bottom: 20px;*/ /* 이게 왜 안되지..? */
+}
+.footer_first .footer_main .footer_btn {
+    margin-top: 40px;
+}
+.footer_first .footer_main .footer_btn button{
+    padding: 12px 24px;
+    background-color: black;
+    color:white;
+    border: white 1px solid;
+    border-radius: 8px;
+
+    margin-bottom: 10px;
+
+    font-size: 18px;
+}
+.footer_first .footer_main .footer_main_substence {
+    font-size: 12px;
+} 
+
+
+.section_footer .footer_first .footer_list {
+    display: flex;
+    justify-content: space-between; /* 이건 또 왜 안됨.. */
+}
+
+.footer_first .footer_list .footer_list_contents:nth-of-type(1),
+.footer_first .footer_list .footer_list_contents:nth-of-type(2) {
+    margin-right: 100px;
+}
+.footer_first .footer_list .footer_list_contents li {  
+    margin-bottom: 20px;
+}
+.footer_first .footer_list .footer_list_contents li a {  
+    color: white;
+}
+
+.section_footer .footer_first .footer_list li:nth-of-type(1) {  /* ul title */
+    font-size: 17px;
+    color: rgb(175, 170, 170);
+    font-weight: bold;
+}
+
+.footer_container .footer_second {
+    display: flex;
+    flex-direction: column;
+}
+.footer_container .footer_second .footer_second_list{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid white;
+}
+
+.footer_container .footer_second .footer_second_list li{
+    padding: 12px 0px;
+}
+.footer_container .footer_second .footer_second_list li a{
+    color: white;
+    font-size: 11px;
+}
+
+.footer_container .footer_second .footer_second_sentence {
+    font-size: 12px;
+    color: gray;
+}
