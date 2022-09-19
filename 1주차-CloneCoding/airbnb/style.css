@@ -168,8 +168,9 @@ button {
 }
 
 .category .fa-arrow-left {              /* 화살표 */
+    font-size: small;
     padding: 5px;
-    margin-right: 3px;
+    margin-right: 10px;
     border-radius: 50%;
     border: 2px solid rgb(207, 202, 202);    
 }
@@ -178,8 +179,9 @@ button {
     transform: scale(1.1);
 }
 .category .fa-arrow-right {
+    font-size: small;
     padding: 5px;
-    margin-left: 3px;
+    margin-left: 10px;
     border-radius: 50%;
     border: 2px solid rgb(207, 202, 202);
 }

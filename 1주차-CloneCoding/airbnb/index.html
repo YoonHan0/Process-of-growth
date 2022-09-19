@@ -18,21 +18,41 @@
     <script type="text/javascript" src="slick/slick.min.js"></script>
     <script src="https://kit.fontawesome.com/a05d83442a.js" crossorigin="anonymous"></script>
     <script>
-        $(document).ready(function(){
-          $('.category').slick({
-            slide: 'button',        //슬라이드 되어야 할 태그
-            slidesToShow: 12,        // 슬라이드에 표시되는 갯수
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 2000,
-            arrows : true,         // 옆으로 이동하는 화살표 표시 여부
-            dots : false,         // 스크롤바 아래 점으로 페이지네이션 여부
-            prevArrow : "<i class='fa-solid fa-arrow-left'></i>",
-            nextArrow : "<i class='fa-solid fa-arrow-right'></i>"
-          });
-        });
+        
+        if (matchMedia("screen and (min-width: 1024px)").matches) {
+            // 1024px 이상에서 사용
+            console.log("1024px 이상");
+            $(document).ready(function(){
+                $('.category').slick({
+                    slide: 'button',        //슬라이드 되어야 할 태그
+                    slidesToShow: 8,        // 슬라이드에 표시되는 갯수
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    arrows : true,         // 옆으로 이동하는 화살표 표시 여부
+                    dots : false,         // 스크롤바 아래 점으로 페이지네이션 여부
+                    prevArrow : "<i class='fa-solid fa-arrow-left'></i>",
+                    nextArrow : "<i class='fa-solid fa-arrow-right'></i>"
+                });
+            });
+        } else {
+            // 1024px 미만에서 사용
+            $(document).ready(function(){
+                $('.category').slick({
+                    slide: 'button',        //슬라이드 되어야 할 태그
+                    slidesToShow: 6,        // 슬라이드에 표시되는 갯수
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    arrows : true,         // 옆으로 이동하는 화살표 표시 여부
+                    dots : false,         // 스크롤바 아래 점으로 페이지네이션 여부
+                    prevArrow : "<i class='fa-solid fa-arrow-left'></i>",
+                    nextArrow : "<i class='fa-solid fa-arrow-right'></i>"
+                });
+            });
+        }
 
-      </script>
+    </script>
 
     <title>여행은 살아보는 거야 - 에어비앤비 - 에어비앤비</title>
 </head>

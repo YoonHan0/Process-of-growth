@@ -472,15 +472,34 @@ header {                    /* header 부분 카테고리도 포함해서 */
     cursor: pointer;
 }
 .section_6 .contents_wrap {    /*contents*/
-    height: 200px;              /* 임의로 크기를 지정 해놓지만 나중에 contents 크기만큼 */
-    width: 794px;
-
-    margin-top: 30px;
+    /*height: 200px;width: 794px;*//* 임의로 크기를 지정 해놓지만 나중에 contents 크기만큼 */ 
+    margin-top: 50px;
 }
 .section_6 .tab_content {
     display: none;
     height: 100%;
     width: 100%;
+}
+
+.tab_content .tab_content-1 {       /*contents들 안에 있는 contents들*/
+    display: flex;
+}
+.tab_content .tab_content-1 ul{
+    display: flex;
+}
+.tab_content-1 img {
+    margin-right: 15px;
+}
+.tab_content-1 .tab-content-title {
+    font-size: large;
+}
+.tab_content-1 .tab-content-subtitle {
+    font-size: small;
+    color: rgb(188, 182, 182);
+}
+.tab-content-desc {
+    display: flex;
+    flex-direction: column;
 }
 .section_6 .checklabel {
     display: none;
@@ -503,8 +522,8 @@ header {                    /* header 부분 카테고리도 포함해서 */
 #tabs_5:checked ~ .contents_wrap li:nth-child(5),
 #tabs_6:checked ~ .contents_wrap li:nth-child(6),
 #tabs_7:checked ~ .contents_wrap li:nth-child(7){
-    background-color: #393b3a;
-    color: #e9ebe8;
+    background-color: white;
+    color: black;
     display: block;
 }
 
