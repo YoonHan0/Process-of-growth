@@ -6,7 +6,7 @@
 - 회원가입, 회원조회 기능
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/87405950/191176049-695793af-9919-478e-811f-2ebed2c43128.gif" height="500px" width="700px" align="center">
+  <img src="https://user-images.githubusercontent.com/87405950/191176049-695793af-9919-478e-811f-2ebed2c43128.gif" height="500px" width="800px">
 </p>
 
 </br>
@@ -14,7 +14,7 @@
 - 회원삭제 기능
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/87405950/191176058-205563b1-d2a2-4c47-9451-56f69468adf3.gif" height="500px" width="600px" align="center">
+  <img src="https://user-images.githubusercontent.com/87405950/191176058-205563b1-d2a2-4c47-9451-56f69468adf3.gif" height="500px" width="800px">
 </p>
 
 </br>
