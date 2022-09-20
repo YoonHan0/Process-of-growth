@@ -126,6 +126,8 @@ function delete_Member() {               // 회원삭제 함수
 }
 ```
 
+</br>
+
 - ### 새롭게 알게 된 내용😮
 
 </br>
@@ -167,7 +169,6 @@ if(list[i].checked) {
 </br>
 - 회원정보 삭제 부분 alert 경고 알림에 삭제되는 사용자명 출력하기
 - Update 기능 구현
-
 
 </br>
 
