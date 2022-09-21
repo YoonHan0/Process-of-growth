@@ -7,7 +7,8 @@
         display_name 딱히 필요없을듯
 */
 
-function signUp() {         // 회원가입하는 함수
+/**회원가입하는 함수 */
+function signUp() {         
     var id = document.getElementById("id").value;
     var pw = document.getElementById("pw").value;
     var confirm_pw = document.getElementById("confirm-pw").value;
@@ -48,16 +49,18 @@ function signUp() {         // 회원가입하는 함수
 
                 document.querySelector('.check_data').append(elem);     // 회원가입이 완료되면 회원조회에 추가
 
-                id = "";
-                pw = "";
-                confirm_pw = "";
-                display_name = "";                          // 회원가입 완료 후 입력되어 있던 값들 사라지게 함
+                var id = document.getElementById("id").value = '';
+                var pw = document.getElementById("pw").value = '';
+                var confirm_pw = document.getElementById("confirm-pw").value = '';
+                var display_name = document.getElementById("display-name").value = '';                       // 회원가입 완료 후 입력되어 있던 값들 사라지게 함
+                //console.log(`id: ${id}, pw: ${pw},  confirm_pw: ${confirm_pw}, display_name: ${display_name}`); // 확인
             }
         }
     }
 }
 
-function check_Member() {               // 회원조회 함수
+/**회원조회 함수 */
+function check_Member() {               
     var member = document.querySelector('.check_data');
     console.log("회원조회!");
     
@@ -69,6 +72,7 @@ function check_Member() {               // 회원조회 함수
     }
 }
 
+/**회원삭제 함수 */
 function delete_Member() {               // 회원삭제 함수
     var list = document.querySelectorAll(".checkBox");
     console.log("회원삭제!");
