@@ -1,0 +1,326 @@
+                            /* --------------------------------------- 기본 태그 설정 --------------------------------------- */
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+ul {
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+button {
+    background-color: white;
+    border: none;
+}
+      
+                            /* ---------------------------------------- header , navbar ------------------------------------ */
+.header {
+    position:sticky;
+    top:0;
+    background-color: white;
+    padding-bottom: 10px;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;    
+
+    padding: 20px;
+    padding-left: 140px;
+    padding-right: 140px;
+    border-bottom: 1px #e8eaf6 solid;
+}
+.navbar .navbar_title_btn {
+    display: flex;
+    flex-grow: 2;
+    justify-content: space-between;
+}
+.navbar .navbar_title {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #FF526F;
+    font-weight: bold; /*bold */
+    font-size: 25px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.navbar .navbar_button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    border-radius: 40px 40px 40px 40px;    
+    border: solid rgb(224, 215, 215) 2px;
+    padding: 5px;
+    padding-left: 24px;
+}
+.navbar .navbar_button button {
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
+    
+    border-right: #e8eaf6 1px solid;
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.navbar .navbar_button :nth-child(3){
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+
+    color: gray;
+}
+.navbar .navbar_button .add_gest {
+    border-radius: 0px 40px 40px 0px; /* 오른쪽 꼭짓점 위아래만 둥글게 */
+}
+.navbar .navbar_button .add_gest :nth-child(1) {            /* 이게 원래 1번째 요소를 선택하는건데 계속 odd라고 인식을 함*/
+    padding-right: 10px;
+}
+.navbar .navbar_button .add_gest :nth-child(2){
+    background-color: #ff385c;
+    border-radius: 90%;
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+    padding: 8px;
+}
+
+.navbar .navbar_icon {                  /* navbar의 icon 목록 전체 */ 
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+
+    justify-content: end;
+    align-items: center;
+}
+
+.navbar_icon li  {                     /* navbar의 icon 호스트되기 부분 */ 
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px;
+}
+
+.navbar .navbar_icon button{            /* navbar의 icon 지구본 + 사람 부분*/ 
+    padding: 8px;
+    background-color: white;
+    border: none;
+
+    font-weight: bold;
+    font-size: large;
+}
+         
+.navbar .navbar_icon li:hover {         /* navbar의 icon 지구본 + 사람 부분 hover */ 
+    background-color: rgb(230, 221, 221);
+    border-radius: 15px 15px 15px 15px;
+}
+.navbar .navbar_icon  button:hover{            
+    background-color: rgb(230, 221, 221);
+    border-radius: 80%;
+}
+
+
+/* ---------------------------------------------------------------category-----------------------------------------------------*/
+
+.category {                              /* category 전체 class */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 90%;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    padding-left: 140px;
+    padding-right: 140px;
+}
+.category button{                     /* category 안의 button (i, span) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;                
+
+    background-color: white;
+    border: none;
+    font-size: 13px;
+    font-weight: bold;
+    color: gray;
+
+    padding-bottom: 8px;
+}
+.category button:checked {
+    color: black;
+}
+.category button i:nth-child(1){        /**/
+    font-size: 20px;
+} 
+.category button:hover {
+    color: black;
+    border-bottom: rgb(230, 221, 221) solid 2px;
+}
+
+.category .fa-arrow-left {              /* 화살표 */
+    font-size: small;
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 50%;
+    border: 2px solid rgb(207, 202, 202);    
+}
+.category .fa-arrow-left:hover {
+    transition: all .2s ease-in-out;  
+    transform: scale(1.1);
+}
+.category .fa-arrow-right {
+    font-size: small;
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 50%;
+    border: 2px solid rgb(207, 202, 202);
+}
+.category .fa-arrow-right:hover {
+    transition: all .2s ease-in-out;  
+    transform: scale(1.1);
+}
+
+
+/* -----------------------------------------------------------  product   ----------------------------------------------------------------*/
+
+.product {                              /* 전체 product */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    row-gap: 40px;
+
+    padding-left: 140px;
+    padding-right: 140px;
+}
+
+.product .product_mid_font {            /* product 이미지 아래 회색 글자 */
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 5px;
+}
+
+
+.product img {                          /* product 이미지 */
+    border-radius: 20px 20px 20px 20px;
+    width:100%;
+    height:300px; 
+}
+ /* 첫 출 */
+/* .product .product_first {              
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+} */
+
+/* .product .product_first .product_first_1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+} */
+
+/* .product .product_second {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+} */
+
+                                /* 화면 fixed */
+.window_fixed {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: black;
+    color: white;
+    opacity: 0.8;
+    font-weight: bolder;
+    border-radius: 20px 20px 20px 20px;
+
+    padding: 15px 20px 15px 20px;
+}
+/* ----------------------------------------------------------- Media Query  ----------------------------------------------------------------*/
+
+                                                    /* 768 <= X <= 1214px */
+@media (min-width: 949px) and (max-width: 1123px) {
+
+    .header .navbar .navbar_title li:nth-child(1) {
+        font-size: 40px;
+    }
+    .header .navbar .navbar_title li:nth-child(2) {
+        display: none;
+    }
+    .header .navbar {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .header .category {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .product {                                      /* 전체 product */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 20px;
+        row-gap: 40px;
+    
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media (min-width: 610px) and (max-width: 948px) {
+    
+    .navbar .navbar_title_btn {
+        display: flex;
+        flex-grow: 2;
+        justify-content: start;
+    }
+
+    .navbar .navbar_title_btn .navbar_title{
+        display: flex;
+        justify-content: space-between;
+
+        margin-right: 15px;
+    }
+    
+    .header .navbar .navbar_title li:nth-child(2) {
+        display: none;
+    }
+     
+    .product {                                      /* 전체 product */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 20px;
+        row-gap: 40px;
+    
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media (max-width: 609px) {
+
+    .header .navbar .navbar_title li:nth-child(2) {
+        display: none;
+    }
+
+    .product {                                      /* 전체 product */
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        column-gap: 20px;
+        row-gap: 40px;
+    
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
