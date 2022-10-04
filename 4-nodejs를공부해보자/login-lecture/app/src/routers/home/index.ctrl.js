@@ -3,13 +3,13 @@
 const output = {
     home: (req, res)=>{       // "/" 루트로 들어왔을 때 보여줄 화면
         // 기능
-       res.render("home/index");    // 작업을 수행하는 render 부분이 controller
+       res.render("home/index");    // 작업을 수행하는 render 부분이 controller / 단순하게 rendering 해주는 부분
     },
     login: (req, res) => {
         res.render("home/login");
     },
 };
-const process = {
+const process = {           // login 요청 처리를 위한 Object
     login: (req, res)=>{
         console.log(req.body);
     },
