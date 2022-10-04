@@ -16,7 +16,7 @@
 //  });
 
 /** express 서버 프레임워크 */
-"use strict"    // ES6 표준을 준수해서 코딩을 하겠다라는 의미
+"use strict";    // ES6 표준을 준수해서 코딩을 하겠다라는 의미
 
 // 모듈
 const express = require("express");
@@ -30,6 +30,7 @@ const home = require("./src/routers/home"); // 라우터를 불러올 수 있게
 app.set("views", "./src/views"); // views를 /views 폴더로 지정  
 app.set("view engine", "ejs");    // view엔진을 ejs로 지정
 
+app.use(express.static(`${__dirname}/src/public`));    // js 파일과 ejs 파일을 연결하기 위한 정적인 경로 설정하는 미들웨어 (${__dirname}은 현재 파일의 위치를 반환함)
 app.use("/", home); // use -> 미들웨어를 등록해주는 메서드
 
 module.exports = app;
