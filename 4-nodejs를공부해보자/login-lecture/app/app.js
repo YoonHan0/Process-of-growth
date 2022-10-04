@@ -21,6 +21,7 @@
 // 모듈
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");  // req의 body(front에서 요청하는 보내는)를 parsing 해오기 위한 모듈
 
 const PORT = 3000;
 
@@ -32,5 +33,7 @@ app.set("view engine", "ejs");    // view엔진을 ejs로 지정
 
 app.use(express.static(`${__dirname}/src/public`));    // js 파일과 ejs 파일을 연결하기 위한 정적인 경로 설정하는 미들웨어 (${__dirname}은 현재 파일의 위치를 반환함)
 app.use("/", home); // use -> 미들웨어를 등록해주는 메서드
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));  // url을 통해 전당되는 데이터에 한글, 공백 등과 같은 문자가 포함될 경우 제대로 인식하지 못하는 경우가 발생, 그러한 문제를 해결해주는 미들웨어
 
 module.exports = app;

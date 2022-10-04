@@ -1,17 +1,24 @@
 "use strict";
 
-const home = (req, res)=>{       // "/" 루트로 들어왔을 때 보여줄 화면
-    // 기능
-   res.render("home/index");    // 작업을 수행하는 render 부분이 controller
+const output = {
+    home: (req, res)=>{       // "/" 루트로 들어왔을 때 보여줄 화면
+        // 기능
+       res.render("home/index");    // 작업을 수행하는 render 부분이 controller
+    },
+    login: (req, res) => {
+        res.render("home/login");
+    },
 };
-const login = (req, res) => {
-    res.render("home/login");
+const process = {
+    login: (req, res)=>{
+        console.log(req.body);
+    },
 };
 
 module.exports = {
-    home,
-    login,
-}
+    output,
+    process,
+};
 
 /*
     Object는 key: value로 구성되어 있는데
