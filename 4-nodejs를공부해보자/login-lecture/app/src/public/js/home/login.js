@@ -17,6 +17,9 @@ function login() {
         headers: {      // 전달하는 데이터가 JSON이라는 것을 알려줘야함
             "Content-Type": "application/json", // JSON이라고 알려줌
         },
-        body: JSON.stringify(req),      // body: req데이터를 JSON형태로 전달해야함
-    });
+        body: JSON.stringify(req),      // body: req데이터를 JSON형태로 전달해야함 / JSON을 문자열 형태로 보내는 거 아닌가?
+     // login.js는 프론트에서 동작하는 js파일이니까 프론트로 보낸 res를 받을 수 있다. (then을 이용해서)
+    }).then((res) => res.json())       // Promise형태로 데이터가 넘어옴 -> promise도 then으로 접근할 수 있음
+    .then(console.log);   // ((res) => console.log(res)) -> console.log : 이렇게 수정이 가능함, 피라미터로 넘기는 값(res)을 어떤 함수(console.log)의 파라미터로 다시 넘길 때는 생략이 가능함
+
 }

@@ -9,9 +9,29 @@ const output = {
         res.render("home/login");
     },
 };
+const users = {
+    id: ["yoon", "han", "young"],
+    psword: ["1234", "1234", "123456"],
+};
+
 const process = {           // login 요청 처리를 위한 Object
     login: (req, res)=>{
-        console.log(req.body);
+        const id = req.body.id;
+        const psword = req.body.psword;
+
+        //console.log(id, psword);
+        if(users.id.includes(id)) {
+            const idx = users.id.indexOf(id);
+            if(users.psword[idx] === psword) {
+                return res.json({       // 아이디 비번이 올바르면 프론트로 json 형태로 데이터 respons (res.json)
+                    sucess: true,
+                });
+            }
+        }
+        return res.json({
+            sucess: false,
+            msg: "로그인에 실패하셨습니다..!",
+        });
     },
 };
 
